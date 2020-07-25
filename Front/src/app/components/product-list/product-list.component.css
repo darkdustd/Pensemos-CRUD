@@ -1,0 +1,31 @@
+.centerText{
+    text-align: center;
+}
+
+.table td, .table th{
+    vertical-align: baseline;
+}
+
+.searchBar{
+    width: 50%;
+}
+
+.jumbotron {
+    padding-top: 4rem;
+    padding-right: 2rem;
+    padding-bottom: 1rem;
+    padding-left: 2rem;
+}
+
+/*Table*/
+.tableFixHead{ 
+    overflow-y:auto; 
+    height: 50%; 
+    padding-right: 0px;
+}
+.tableFixHead thead th { 
+    position: sticky; 
+    top: 0;
+    border: 100px;
+    z-index: 10;
+}
