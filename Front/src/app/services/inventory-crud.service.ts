@@ -9,7 +9,7 @@ import {BehaviorSubject} from 'rxjs';
 export class InventoryCRUDService {
 
   //Server url 
-  url:string ='http://';
+  url:string ='http://localhost:8000';
 
   private toUpdateProduct = new BehaviorSubject<Product>({code:null,name:null,price:0,stock:0});
   sharedProduct = this.toUpdateProduct.asObservable();
@@ -21,7 +21,8 @@ export class InventoryCRUDService {
 
   //Methos to get (all) products
   getProducts(){
-    //return this.http.get<Product[]>(this.url);
+
+    return this.http.get<any>(this.url);
   }
 
   //Method to get a specific searched product

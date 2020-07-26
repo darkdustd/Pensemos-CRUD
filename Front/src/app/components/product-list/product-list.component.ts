@@ -45,6 +45,12 @@ export class ProductListComponent implements OnInit {
         startWith(''),
         map(searchValue => this.filter(searchValue))
       );
+
+      this.inventoryService.getProducts().subscribe(res =>{
+        console.log("this are the backend products or whatever");
+        console.log(res);
+        //this.products = res;
+      })
   }
 
   //Open create product modal component
