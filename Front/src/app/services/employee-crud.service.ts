@@ -30,19 +30,49 @@ export class EmployeeCRUDService {
   //Method to create a new person
   createEmployee(newEmployee){
     console.log(newEmployee);
-    this.http.post(this.url,newEmployee);
+    this.http.post(this.url,newEmployee).subscribe(res => {
+      console.log(res);
+    },
+      error => {
+        console.log(error);
+      },
+      () => {
+        //Display a confirmation message
+        //this.flashMessage.show("El usuario ha sido creado exitosamente", {cssClass: 'alert-success', timeout: 3000});
+
+      });
   }
 
   //Method to edit a person
   editEmployee(editedEmployee:Employee){
     console.log(editedEmployee);
-    this.http.put(this.url,editedEmployee);
+    this.http.put(this.url,editedEmployee).subscribe(res => {
+      console.log(res);
+    },
+      error => {
+        console.log(error);
+      },
+      () => {
+        //Display a confirmation message
+        //this.flashMessage.show("El usuario ha sido creado exitosamente", {cssClass: 'alert-success', timeout: 3000});
+
+      });
   }
 
   //Method to delete a person
   deleteEmployee(employeeId){
     console.log(employeeId);
-    this.http.delete(this.url+'/'+employeeId)
+    this.http.delete(this.url+'/'+employeeId).subscribe(res => {
+      console.log(res);
+    },
+      error => {
+        console.log(error);
+      },
+      () => {
+        //Display a confirmation message
+        //this.flashMessage.show("El usuario ha sido creado exitosamente", {cssClass: 'alert-success', timeout: 3000});
+
+      });
 
   }
 
