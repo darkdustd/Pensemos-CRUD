@@ -40,11 +40,12 @@ export class EmployeeListComponent implements OnInit {
       this.employees = res;
     });
     
-    this.filtredOptions = this.myFormControl.valueChanges
+   /* this.filtredOptions = this.myFormControl.valueChanges
       .pipe(
         startWith(''),
         map(searchValue => this.filter(searchValue))
       );
+      */
   }
 
   //Open create product modal component

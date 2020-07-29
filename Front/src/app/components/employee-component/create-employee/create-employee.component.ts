@@ -20,6 +20,7 @@ export class CreateEmployeeComponent implements OnInit {
   
   createEmployee(){
     let newEmployee = {
+      id:this.employee.id,
       firstName:this.employee.firstName,
       lastName:this.employee.lastName,
       email:this.employee.email
