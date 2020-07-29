@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Product} from '../../models/product';
-import {InventoryCRUDService} from '../../services/inventory-crud.service';
+import {Product} from '../../../models/product';
+import {ProductCRUDService} from '../../../services/product-crud.service';
 
 @Component({
   selector: 'app-create-product',
@@ -11,7 +11,7 @@ export class CreateProductComponent implements OnInit {
 
   product:Product = new Product();
 
-  constructor(private inventoryService: InventoryCRUDService) {
+  constructor(private productService: ProductCRUDService) {
     
    }
 
@@ -25,6 +25,6 @@ export class CreateProductComponent implements OnInit {
       price:this.product.price,
       stock:this.product.stock
     }
-    this.inventoryService.createProducts(newProduct);
+    this.productService.createProducts(newProduct);
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {InventoryCRUDService} from '../../services/inventory-crud.service';
-import {Product} from '../../models/product';
+import {ProductCRUDService} from '../../../services/product-crud.service';
+import {Product} from '../../../models/product';
 
 @Component({
   selector: 'app-delete-product',
@@ -11,18 +11,18 @@ export class DeleteProductComponent implements OnInit {
 
   deletedProduct:Product;
 
-  constructor(private inventoryService:InventoryCRUDService) { }
+  constructor(private productService:ProductCRUDService) { }
 
   ngOnInit(): void {
     console.log("Nepfore")
     console.log(this.deletedProduct);
-    this.inventoryService.sharedProduct.subscribe(sharedObject => this.deletedProduct = sharedObject)
+    this.productService.sharedProduct.subscribe(sharedObject => this.deletedProduct = sharedObject)
     console.log("Nepafter")
     console.log(this.deletedProduct);
   }
 
   deleteProduct(){
-    this.inventoryService.deleteProducts(this.deletedProduct.code);
+    this.productService.deleteProducts(this.deletedProduct.code);
   }
  
 }

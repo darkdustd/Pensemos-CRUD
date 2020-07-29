@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Edit person</h1>
+<hr class="my-4">
+<mat-dialog-content>
+    <div class="form-row">
+        <div class="form-group col-md-8 offset-2">
+            <label for="personId">Employee ID</label>
+            <input type="text" class="form-control" [(ngModel)]="editedEmployee.id" placeholder="Employee ID" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-8 offset-2">
+            <label for="productName">First Name</label>
+            <input type="text" class="form-control" [(ngModel)]="editedEmployee.firstName" placeholder="Employee first name" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4 offset-2">
+            <label for="productName">Last Name</label>
+            <input type="text" class="form-control" [(ngModel)]="editedEmployee.lastName" placeholder="Employee last name" required>
+        </div>
+        <div class="form-group col-md-4 ">
+            <label for="productName">Email</label>
+            <input type="text" class="form-control" [(ngModel)]="editedEmployee.email" placeholder="Employee email" required>
+        </div>
+    </div>
+    <hr class="my-4">
+</mat-dialog-content>
+ 
+<mat-dialog-actions>
+    <button mat-button class="btn btn-outline-success btn-lg" style="margin-left: 38%;"
+        (click)="editEmployee()">Edit</button>
+    <button mat-button mat-dialog-close class="btn btn-outline-danger btn-lg" style="margin-left: 2%;">Cancel</button>
+</mat-dialog-actions>

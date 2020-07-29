@@ -1,0 +1,18 @@
+.centerText{
+    text-align: center;
+}
+
+.table td, .table th{
+    vertical-align: baseline;
+}
+
+.searchBar{
+    width: 50%;
+}
+
+.jumbotron {
+    padding-top: 4rem;
+    padding-right: 2rem;
+    padding-bottom: 0rem;
+    padding-left: 2rem;
+}

@@ -1,0 +1,54 @@
+<div class="centerText paddingDiv">
+<form>
+  <mat-form-field class="searchBar">
+    <input placeholder="Search a product" matInput (keyup.enter)="searchProduct($event.target.value)"
+      [matAutocomplete]="autoComplete" [formControl]="myFormControl" />
+    <mat-autocomplete #autoComplete="matAutocomplete">
+      <mat-option *ngFor="let product of filtredOptions | async" [value]="product">
+        {{product}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+
+<button mat-fab color="primary" style="outline: none;" (click)="onCreateProduct()">
+  <mat-icon>add</mat-icon>
+</button>
+</div>
+
+<div class="container tableFixHead">
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr class="text-center">
+        <th>Code</th>
+        <th>Name</th>
+        <th>Price</th>
+        <!--<th>Stock</th>-->
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of products" class="text-center">
+        <td>{{product.code}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.price}}</td>
+        <!-- <td>{{product.stock}}</td>-->
+        <td style="z-index: 1;">
+          <button mat-icon-button color="primary" style="outline: none;" (click)="onSeeProduct(product)">
+            <mat-icon>visibility</mat-icon>
+          </button>
+          <button mat-icon-button style="color:rgb(36, 162, 136);outline: none;" (click)="onEditProduct(product)">
+            <mat-icon>create</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" style="outline: none;" (click)=onDeleteProduct(product)>
+            <mat-icon>delete_outline</mat-icon>
+          </button>
+
+          <!--<button class="btn btn-outline-info btn-">Details</button>
+          <button class="btn btn-outline-warning" (click)="onEditProduct(product)">Edit</button>
+          <button class="btn btn-outline-danger">Delete</button>-->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

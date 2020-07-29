@@ -6,10 +6,10 @@ import {BehaviorSubject} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class InventoryCRUDService {
+export class ProductCRUDService {
 
   //Server url 
-  url:string ='http://localhost:8000';
+  url:string ='http://';
 
   private toUpdateProduct = new BehaviorSubject<Product>({code:null,name:null,price:0,stock:0});
   sharedProduct = this.toUpdateProduct.asObservable();
@@ -21,13 +21,12 @@ export class InventoryCRUDService {
 
   //Methos to get (all) products
   getProducts(){
-
-    return this.http.get<any>(this.url);
+    //return this.http.get<Product[]>(this.url);
   }
 
   //Method to get a specific searched product
   getProduct(searchString:string){
-
+    console.log(searchString);
   }
 
   //Method to create a new product

@@ -10,10 +10,10 @@ import { ProductDetailsComponent } from '../product-details/product-details.comp
 import { DeleteProductComponent } from '../delete-product/delete-product.component';
 
 //Imported service
-import { InventoryCRUDService } from '../../services/inventory-crud.service';
+import { ProductCRUDService } from '../../../services/product-crud.service';
 
 //Product model
-import { Product } from '../../models/product';
+import { Product } from '../../../models/product';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -37,7 +37,7 @@ export class ProductListComponent implements OnInit {
   { code: "8", name: "Megaphone", price: 200000, stock: 10 }];
 
 
-  constructor(public modal: MatDialog, private inventoryService: InventoryCRUDService) { }
+  constructor(public modal: MatDialog, private productService: ProductCRUDService) { }
 
   ngOnInit(): void {
     this.filtredOptions = this.myFormControl.valueChanges
@@ -45,12 +45,6 @@ export class ProductListComponent implements OnInit {
         startWith(''),
         map(searchValue => this.filter(searchValue))
       );
-
-      this.inventoryService.getProducts().subscribe(res =>{
-        console.log("this are the backend products or whatever");
-        console.log(res);
-        //this.products = res;
-      })
   }
 
   //Open create product modal component
@@ -66,7 +60,7 @@ export class ProductListComponent implements OnInit {
   //Open edit product modal component
   onEditProduct(product: Product) {
     //Function to pass the selected product data to editProductComponent
-    this.inventoryService.changeSharedProduct(product);
+    this.productService.changeSharedProduct(product);
     //Call the component create product and show it in a dialog/modal
     this.modal.open(EditProductComponent, {
       //configure the dialog size
@@ -78,7 +72,7 @@ export class ProductListComponent implements OnInit {
   //Open product details modal component
   onSeeProduct(product: Product) {
     //Function to pass the selected product data to productDetailsComponent
-    this.inventoryService.changeSharedProduct(product);
+    this.productService.changeSharedProduct(product);
     this.modal.open(ProductDetailsComponent, {
       //configure the dialog size
       height: '50%',
@@ -87,7 +81,7 @@ export class ProductListComponent implements OnInit {
   }
 
   onDeleteProduct(product: Product) {
-    this.inventoryService.changeSharedProduct(product);
+    this.productService.changeSharedProduct(product);
     this.modal.open(DeleteProductComponent, {
       //configure the dialog size
       height: '30%',

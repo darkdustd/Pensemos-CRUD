@@ -17,6 +17,10 @@
     padding-left: 2rem;
 }
 
+.paddingDiv{
+    padding-bottom: 1rem;
+}
+
 /*Table*/
 .tableFixHead{ 
     overflow-y:auto; 

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {InventoryCRUDService} from '../../services/inventory-crud.service';
-import {Product} from '../../models/product';
+import {ProductCRUDService} from '../../../services/product-crud.service';
+import {Product} from '../../../models/product';
 
 @Component({
   selector: 'app-edit-product',
@@ -13,12 +13,12 @@ export class EditProductComponent implements OnInit {
 
    EditedProduct:Product = new Product();
 
-  constructor(private inventoryService:InventoryCRUDService) { }
+  constructor(private productService:ProductCRUDService) { }
 
   ngOnInit(): void {
     console.log("Nepfore")
     console.log(this.sharedProduct);
-    this.inventoryService.sharedProduct.subscribe(sharedObject => this.sharedProduct = sharedObject)
+    this.productService.sharedProduct.subscribe(sharedObject => this.sharedProduct = sharedObject)
     console.log("Nepafter")
     console.log(this.sharedProduct);
      
@@ -37,7 +37,7 @@ export class EditProductComponent implements OnInit {
       price:this.EditedProduct.price,
       stock:this.EditedProduct.stock
     }
-    this.inventoryService.editProducts(editedProduct);
+    this.productService.editProducts(editedProduct);
   }
 
 }

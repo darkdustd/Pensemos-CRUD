@@ -1,0 +1,46 @@
+
+<div class="centerText paddingDiv">
+  <form>
+    <mat-form-field class="searchBar">
+      <input placeholder="Search a employee" matInput (keyup.enter)="searchEmployee($event.target.value)" [matAutocomplete]="autoComplete" [formControl]="myFormControl"/>
+      <mat-autocomplete #autoComplete = "matAutocomplete">
+       <mat-option *ngFor="let employee of filtredOptions | async" [value]="employee">
+          {{employee}}
+          </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+   
+    <button mat-fab color="primary" style="outline: none;" (click)="onCreateEmployee()">
+      <mat-icon>add</mat-icon>
+      </button>
+</div>
+
+<div class="container tableFixHead">
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr class="text-center">
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let employee of employees" class="text-center">
+        <td>{{employee.id}}</td>
+        <td>{{employee.firstName}}</td>
+        <td>{{employee.lastName}}</td>
+        <td style="z-index: 1;">
+          <button mat-icon-button color="primary" style="outline: none;" (click)="onSeeEmployee(employee)"><mat-icon>visibility</mat-icon></button>
+          <button mat-icon-button style="color:rgb(36, 162, 136);outline: none;" (click)="onEditEmployee(employee)"><mat-icon>create</mat-icon></button>
+          <button mat-icon-button color="warn" style="outline: none;" (click)=onDeleteEmployee(employee)><mat-icon>delete_outline</mat-icon></button>
+          
+          <!--<button class="btn btn-outline-info btn-">Details</button>
+          <button class="btn btn-outline-warning" (click)="onEditProduct(product)">Edit</button>
+          <button class="btn btn-outline-danger">Delete</button>-->
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

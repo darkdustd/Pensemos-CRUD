@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Create product</h1>
+<hr class="my-4">
+<mat-dialog-content>
+    <div class="form-row">
+        <div class="form-group col-md-8 offset-2">
+            <label for="personId">ID</label>
+            <input type="text" class="form-control" [(ngModel)]="employee.id" placeholder="Employee ID" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-8 offset-2">
+            <label for="personFirstName">Fist Name</label>
+            <input type="text" class="form-control" [(ngModel)]="employee.firstName" placeholder="Employee first name(s)" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-4 offset-2">
+            <label for="personLastName">Last Name</label>
+            <input type="text" class="form-control" [(ngModel)]="employee.lastName" placeholder="Employee last names" required>
+        </div>
+        <div class="form-group col-md-4 ">
+            <label for="personEmail">Email</label>
+            <input type="text" class="form-control" [(ngModel)]="employee.email" placeholder="Employee email" required>
+        </div>
+    </div>
+    <hr class="my-4">
+</mat-dialog-content>
+ 
+<mat-dialog-actions>
+    <button mat-button class="btn btn-outline-success btn-lg" style="margin-left: 38%;"
+        (click)="createEmployee()">Save</button>
+    <button mat-button mat-dialog-close class="btn btn-outline-danger btn-lg" style="margin-left: 2%;">Cancel</button>
+</mat-dialog-actions>
