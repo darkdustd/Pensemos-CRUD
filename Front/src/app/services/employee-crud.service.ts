@@ -40,7 +40,7 @@ export class EmployeeCRUDService {
   }
 
   //Method to delete a person
-  deleteEmployee(employeeId:string){
+  deleteEmployee(employeeId){
     console.log(employeeId);
     this.http.delete(this.url+'/'+employeeId)
 
