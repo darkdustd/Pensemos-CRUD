@@ -8,7 +8,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 //Imported Services
 import { EmployeeCRUDService } from './services/employee-crud.service';
-import { ProductCRUDService } from './services/product-crud.service';
+import { DepartmentCRUDService } from './services/department-crud.service';
 
 //Imported components
 import {CreateEmployeeComponent} from './components/employee-component/create-employee/create-employee.component';
@@ -17,11 +17,11 @@ import {EditEmployeeComponent} from './components/employee-component/edit-employ
 import {EmployeeDetailsComponent} from './components/employee-component/employee-details/employee-details.component';
 import {EmployeeListComponent} from './components/employee-component/employee-list/employee-list.component';
 
-import {CreateProductComponent} from './components/product-component/create-product/create-product.component';
-import {DeleteProductComponent} from './components/product-component/delete-product/delete-product.component';
-import {EditProductComponent} from './components/product-component/edit-product/edit-product.component';
-import {ProductDetailsComponent} from './components/product-component/product-details/product-details.component';
-import {ProductListComponent} from './components/product-component/product-list/product-list.component';
+import {CreateDepartmentComponent} from './components/department-component/create-department/create-department.component';
+import {DeleteDeparmentComponent} from './components/department-component/delete-department/delete-department.component';
+import {EditDepartmentComponent} from './components/department-component/edit-department/edit-department.component';
+import {DepartmentDetailsComponent} from './components/department-component/department-details/department-details.component';
+import {DepartmentListComponent} from './components/department-component/department-list/department-list.component';
 
 //Imported modules form angular material
 import { MatTableModule } from '@angular/material/table';
@@ -32,6 +32,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatSelectModule} from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox'
 
 @NgModule({
   declarations: [
@@ -41,11 +42,11 @@ import {MatSelectModule} from '@angular/material/select';
     EditEmployeeComponent,
     EmployeeDetailsComponent,
     EmployeeListComponent,
-    CreateProductComponent,
-    DeleteProductComponent,
-    EditProductComponent,
-    ProductDetailsComponent,
-    ProductListComponent
+    CreateDepartmentComponent,
+    DeleteDeparmentComponent,
+    EditDepartmentComponent,
+    DepartmentDetailsComponent,
+    DepartmentListComponent
   ],
   imports: [
     BrowserModule,
@@ -60,11 +61,12 @@ import {MatSelectModule} from '@angular/material/select';
     ReactiveFormsModule,
     MatIconModule,
     MatButtonModule,
-    MatSelectModule
+    MatSelectModule,
+    MatCheckboxModule
   ],
   providers: [
     EmployeeCRUDService,
-    ProductCRUDService
+    DepartmentCRUDService
   ],
   bootstrap: [AppComponent],
   entryComponents: [
@@ -72,9 +74,9 @@ import {MatSelectModule} from '@angular/material/select';
     DeleteEmployeeComponent,
     EditEmployeeComponent,
     EmployeeDetailsComponent,
-    CreateProductComponent,
-    DeleteProductComponent,
-    EditProductComponent,
-    ProductDetailsComponent]
+    CreateDepartmentComponent,
+    DeleteDeparmentComponent,
+    EditDepartmentComponent,
+    DepartmentDetailsComponent]
 })
 export class AppModule { }

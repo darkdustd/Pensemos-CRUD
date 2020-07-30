@@ -92,6 +92,7 @@ export class EmployeeListComponent implements OnInit {
 
   searchEmployee(searchString) {
     console.log(searchString);
+    this.employeeService.getEmployee(searchString);
   }
 
   displayAutocomplete(subject) {

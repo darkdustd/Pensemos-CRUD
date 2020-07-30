@@ -1,0 +1,53 @@
+<div class="centerText paddingDiv">
+  <form>
+    <mat-form-field class="searchBar">
+      <input placeholder="Search a department" matInput (keyup.enter)="searchDepartment($event.target.value)"
+        [matAutocomplete]="autoComplete" [formControl]="myFormControl" />
+      <mat-autocomplete #autoComplete="matAutocomplete">
+        <mat-option *ngFor="let department of filtredOptions | async" [value]="department">
+          {{department}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>
+
+  <button mat-fab color="primary" style="outline: none; margin-right: 10px;" (click)="onCreateDepartment()">
+    <mat-icon>add</mat-icon>
+  </button>
+  <button mat-fab color="warn" style="outline: none;" [disabled]="disabledButton">
+    <mat-icon>clear</mat-icon>
+  </button>
+</div>
+
+<div class="container tableFixHead">
+  <table class="table table-hover">
+    <thead class="thead-dark">
+      <tr class="text-center">
+        <th>Code</th>
+        <th>Name</th>
+        <th>Actions</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let department of departments;let indexOfelement=index;" class="text-center">
+        <td>{{department.code}}</td>
+        <td>{{department.name}}</td>
+        <td style="z-index: 1;">
+          <button mat-icon-button color="primary" style="outline: none;" (click)="onSeeDepartment(department)">
+            <mat-icon>visibility</mat-icon>
+          </button>
+          <button mat-icon-button style="color:rgb(36, 162, 136);outline: none;" (click)="onEditDepartment(department)">
+            <mat-icon>create</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" style="outline: none;" (click)=onDeleteDepartment(department)>
+            <mat-icon>delete_outline</mat-icon>
+          </button>
+        </td>
+        <td>
+          <mat-checkbox class="example-margin" [(ngModel)]="checkBoxValue[indexOfelement]" color="warn" ng-true-value=true ng-false-value=false (ngModelChange)=selectDepartmentsId(checkBoxValue,department,indexOfelement)></mat-checkbox>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

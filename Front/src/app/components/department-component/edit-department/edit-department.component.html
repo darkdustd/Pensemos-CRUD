@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Edit Department</h1>
+<hr class="my-4">
+<mat-dialog-content>
+    <div class="form-row">
+        <div class="form-group col-md-8 offset-2">
+            <label for="productCode">Code</label>
+            <input type="text" class="form-control" [(ngModel)]="editedDepartment.code" placeholder="Department code" required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-8 offset-2">
+            <label for="productName">Name</label>
+            <input type="text" class="form-control" [(ngModel)]="editedDepartment.name" placeholder="Department name" required>
+        </div>
+    </div>
+
+    <hr class="my-4">
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button mat-button class="btn btn-outline-success btn-lg" style="margin-left: 38%;"
+        (click)="editDepartment()">Edit</button>
+    <button mat-button mat-dialog-close class="btn btn-outline-danger btn-lg" style="margin-left: 2%;">Cancel</button>
+</mat-dialog-actions>
