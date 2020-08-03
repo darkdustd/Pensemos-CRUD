@@ -11,23 +11,27 @@
     </mat-form-field>
   </form>
    
-    <button mat-fab color="primary" style="outline: none;" (click)="onCreateEmployee()">
+    <button mat-fab color="primary" style="outline: none; margin-right: 10px;" (click)="onCreateEmployee()">
       <mat-icon>add</mat-icon>
       </button>
+      <button mat-fab color="warn" style="outline: none;" [disabled]="disabledButton" (click)="onDeleteManyEmployees()">
+        <mat-icon>clear</mat-icon>
+      </button>
 </div>
-
+ 
 <div class="container tableFixHead">
   <table class="table table-hover">
     <thead class="thead-dark">
-      <tr class="text-center">
+      <tr class="text-center" style="top:0">
         <th>ID</th>
         <th>First Name</th>
         <th>Last Name</th>
         <th>Actions</th>
+        <th><mat-checkbox class="checkBoxColor" [(ngModel)]="checkAllBoxesValue" color="primary" ng-true-value=true ng-false-value=false (ngModelChange)=selectAllEmployees(checkAllBoxesValue)></mat-checkbox></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let employee of employees" class="text-center">
+      <tr *ngFor="let employee of employees; let indexOfelement=index;" class="text-center">
         <td>{{employee.id}}</td>
         <td>{{employee.firstName}}</td>
         <td>{{employee.lastName}}</td>
@@ -35,10 +39,9 @@
           <button mat-icon-button color="primary" style="outline: none;" (click)="onSeeEmployee(employee)"><mat-icon>visibility</mat-icon></button>
           <button mat-icon-button style="color:rgb(36, 162, 136);outline: none;" (click)="onEditEmployee(employee)"><mat-icon>create</mat-icon></button>
           <button mat-icon-button color="warn" style="outline: none;" (click)=onDeleteEmployee(employee)><mat-icon>delete_outline</mat-icon></button>
-          
-          <!--<button class="btn btn-outline-info btn-">Details</button>
-          <button class="btn btn-outline-warning" (click)="onEditProduct(product)">Edit</button>
-          <button class="btn btn-outline-danger">Delete</button>-->
+        </td>
+        <td>
+          <mat-checkbox class="example-margin" [(ngModel)]="checkBoxValue[indexOfelement]" color="warn" ng-true-value=true ng-false-value=false (ngModelChange)=selectEmployees(checkBoxValue,employee,indexOfelement)></mat-checkbox>
         </td>
       </tr>
     </tbody>

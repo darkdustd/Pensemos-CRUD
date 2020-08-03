@@ -9,6 +9,7 @@ import {EmployeeCRUDService} from '../../../services/employee-crud.service';
 })
 export class CreateEmployeeComponent implements OnInit {
 
+  //create a new employee variable
   employee:Employee = new Employee();
 
   constructor(private employeeService: EmployeeCRUDService) {
@@ -25,6 +26,7 @@ export class CreateEmployeeComponent implements OnInit {
       lastName:this.employee.lastName,
       email:this.employee.email
     }
+    //Send the new employee to the employee service in order to create it
     this.employeeService.createEmployee(newEmployee);
   }
 }

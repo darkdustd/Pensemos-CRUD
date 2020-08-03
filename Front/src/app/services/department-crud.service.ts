@@ -12,43 +12,51 @@ export class DepartmentCRUDService {
   //Server url 
   url:string ='http://';
 
+  //private variable of type department witch will save a department from a component
   private toUpdateDepartment = new BehaviorSubject<Department>({code:null,name:null});
   sharedDepartment = this.toUpdateDepartment.asObservable();
 
+  //private variable of type object witch will save an array of department from a component
+  private toUpdateDepartments = new BehaviorSubject<any[]>([]);
+  sharedDepartments = this.toUpdateDepartments.asObservable();
 
   constructor(private http:HttpClient, private router: Router) { }
 
-  //verify if i have to use camelcase upper or lower case, if upper case change all methods and variables names
-
-  //Methos to get (all) products
+  //function to get all departments 
   getDepartments(){
     //return this.http.get<Product[]>(this.url);
   }
 
-  //Method to get a specific searched product
+  //function to get a specific searched department using a searchString 
   getDepartment(searchString:string){
     console.log(searchString);
   }
 
-  //Method to create a new product
+  //function to create a new product
   createDepartment(newDepartment){
     console.log(newDepartment);
     this.router.navigateByUrl('/departments').then(
       () => {this.router.navigateByUrl(this.router.url);});
   }
-
-  //Method to edit a product
+ 
+  //function to edit a product
   editDepartment(editedDepartment){
     console.log(editedDepartment);
   }
 
-  //Method to delete a product
+  //function to delete a product
   deleteDepartment(departmentId:string){
     console.log(departmentId);
 
   }
 
+  //function to pass a department from a component to another one
   changeSharedDepartment(department:Department){
     this.toUpdateDepartment.next(department);
+  }
+
+  //function to pass a department array from a component to another one
+  changeSharedDepartments(departments){
+    this.toUpdateDepartments.next(departments);
   }
 }

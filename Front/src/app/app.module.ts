@@ -9,19 +9,20 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 //Imported Services
 import { EmployeeCRUDService } from './services/employee-crud.service';
 import { DepartmentCRUDService } from './services/department-crud.service';
+import { ValidateService } from './services/validate.service';
 
 //Imported components
-import {CreateEmployeeComponent} from './components/employee-component/create-employee/create-employee.component';
-import {DeleteEmployeeComponent} from './components/employee-component/delete-employee/delete-employee.component';
-import {EditEmployeeComponent} from './components/employee-component/edit-employee/edit-employee.component';
-import {EmployeeDetailsComponent} from './components/employee-component/employee-details/employee-details.component';
-import {EmployeeListComponent} from './components/employee-component/employee-list/employee-list.component';
+import { CreateEmployeeComponent } from './components/employee-component/create-employee/create-employee.component';
+import { DeleteEmployeeComponent } from './components/employee-component/delete-employee/delete-employee.component';
+import { EditEmployeeComponent } from './components/employee-component/edit-employee/edit-employee.component';
+import { EmployeeDetailsComponent } from './components/employee-component/employee-details/employee-details.component';
+import { EmployeeListComponent } from './components/employee-component/employee-list/employee-list.component';
 
-import {CreateDepartmentComponent} from './components/department-component/create-department/create-department.component';
-import {DeleteDeparmentComponent} from './components/department-component/delete-department/delete-department.component';
-import {EditDepartmentComponent} from './components/department-component/edit-department/edit-department.component';
-import {DepartmentDetailsComponent} from './components/department-component/department-details/department-details.component';
-import {DepartmentListComponent} from './components/department-component/department-list/department-list.component';
+import { CreateDepartmentComponent } from './components/department-component/create-department/create-department.component';
+import { DeleteDeparmentComponent } from './components/department-component/delete-department/delete-department.component';
+import { EditDepartmentComponent } from './components/department-component/edit-department/edit-department.component';
+import { DepartmentDetailsComponent } from './components/department-component/department-details/department-details.component';
+import { DepartmentListComponent } from './components/department-component/department-list/department-list.component';
 
 //Imported modules form angular material
 import { MatTableModule } from '@angular/material/table';
@@ -30,9 +31,11 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatIconModule } from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
-import {MatSelectModule} from '@angular/material/select';
-import {MatCheckboxModule} from '@angular/material/checkbox'
+import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -62,11 +65,13 @@ import {MatCheckboxModule} from '@angular/material/checkbox'
     MatIconModule,
     MatButtonModule,
     MatSelectModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatTooltipModule
   ],
   providers: [
     EmployeeCRUDService,
-    DepartmentCRUDService
+    DepartmentCRUDService,
+    ValidateService
   ],
   bootstrap: [AppComponent],
   entryComponents: [

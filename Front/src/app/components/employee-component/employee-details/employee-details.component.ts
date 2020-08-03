@@ -9,16 +9,20 @@ import {Employee} from '../../../models/employee';
 })
 export class EmployeeDetailsComponent implements OnInit {
 
+  //Variable to get the selected employee data
   selectedEmployee:Employee;
 
   constructor(private employeeService:EmployeeCRUDService) { }
 
   ngOnInit(): void {
-    console.log("Nepfore")
-    console.log(this.selectedEmployee);
-    this.employeeService.sharedPerson.subscribe(sharedEmployee => this.selectedEmployee = sharedEmployee)
-    console.log("Nepafter")
-    console.log(this.selectedEmployee);
+    //console.log("Nepfore")
+    //console.log(this.selectedEmployee);
+
+    //Get the selected employee data from employee list component and set it in selectedEmployee variable
+    this.employeeService.sharedPerson.subscribe(sharedEmployee => this.selectedEmployee = sharedEmployee);
+
+    //console.log("Nepafter")
+    //console.log(this.selectedEmployee);
   }
   
 }

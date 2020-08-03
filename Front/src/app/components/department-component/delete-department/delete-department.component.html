@@ -1,12 +1,31 @@
 <h2>Department delete confirmation</h2>
 <hr class="my-4">
-<div class="container">
-    <p>The product <b>{{deletedDepartment.name}}</b> will be deleted, this action cannot be reversed.
-        Are you sure you want to delete product <b>{{deletedDepartment.name}}</b>?</p>
+<!--Display this if delete only one product-->
+<div class="container" *ngIf="!deleteManyBoolean">
+    <p>The department <b>{{deletedDepartment.name}}</b> will be deleted, this action cannot be reversed.
+        Are you sure you want to delete department <b>{{deletedDepartment.name}}</b>?</p>
+</div>
+<!--Display this if delete  many products-->
+<div class="container" *ngIf="deleteManyBoolean">
+    <p>The following department will be deleted:</p>
+    <div *ngFor="let deletedProducts of deletedDepartments">
+       <b> -{{deletedProducts.name}}</b>
+    </div>
+    <br>
+    This action cannot be reversed, are you sure you want to delete these department?
 </div>
 <hr class="my-4">
-<mat-dialog-actions>
+
+<!--Display this if delete only one product-->
+<mat-dialog-actions *ngIf="!deleteManyBoolean">
     <button mat-button class="btn btn-outline-danger btn-lg" style="margin-left: 38%;"
         (click)="deleteDepartment()">Delete</button>
+    <button mat-button mat-dialog-close class="btn btn-outline-primary btn-lg" style="margin-left: 2%;">Cancel</button>
+</mat-dialog-actions>
+
+<!--Display this if delete  many products-->
+<mat-dialog-actions *ngIf="deleteManyBoolean">
+    <button mat-button class="btn btn-outline-danger btn-lg" style="margin-left: 38%;"
+        (click)="deleteDepartments()">Delete</button>
     <button mat-button mat-dialog-close class="btn btn-outline-primary btn-lg" style="margin-left: 2%;">Cancel</button>
 </mat-dialog-actions>

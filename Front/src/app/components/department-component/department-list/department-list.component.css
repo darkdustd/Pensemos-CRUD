@@ -30,6 +30,36 @@
 .tableFixHead thead th { 
     position: sticky; 
     top: 0;
-    border: 100px;
+    /*border: 100px;*/
     z-index: 10;
+    height: 49px;
+}
+
+::ng-deep .mat-checkbox.checkBoxColor .mat-checkbox-frame{
+    border-color:white;
+    color:"warn";
+  }
+
+  .table th {
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 0px solid #dee2e6;
+}
+
+::ng-deep .primaryTool{
+    background:rgb(62, 80, 170);
+    font-weight: bold;
+    font-size: 11px;
+}
+
+::ng-deep .warnTool{
+    background:rgb(249, 62, 61);
+    font-weight: bold;
+    font-size: 11px;
+}
+
+::ng-deep .greenTool{
+    background:rgb(36, 162, 136);
+    font-weight: bold;
+    font-size: 11px;
 }

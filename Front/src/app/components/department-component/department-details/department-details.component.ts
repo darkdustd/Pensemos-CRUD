@@ -8,17 +8,21 @@ import {Department} from '../../../models/department';
   styleUrls: ['./department-details.component.css']
 })
 export class DepartmentDetailsComponent implements OnInit {
-
+ 
+   //Variable to get the selected department data
   selectedDepartment:Department;
 
   constructor(private departmentService:DepartmentCRUDService) { }
 
   ngOnInit(): void {
-    console.log("Nepfore")
-    console.log(this.selectedDepartment);
-    this.departmentService.sharedDepartment.subscribe(sharedDepartment => this.selectedDepartment = sharedDepartment)
-    console.log("Nepafter")
-    console.log(this.selectedDepartment);
+    //console.log("Nepfore")
+    //console.log(this.selectedDepartment);
+
+    //Get the selected employee data from department list component and set it in selectedDepartment variable
+    this.departmentService.sharedDepartment.subscribe(sharedDepartment => this.selectedDepartment = sharedDepartment);
+
+    //console.log("Nepafter")
+    //console.log(this.selectedDepartment);
   }
  
 }
