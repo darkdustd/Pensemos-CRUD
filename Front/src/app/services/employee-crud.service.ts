@@ -29,7 +29,7 @@ export class EmployeeCRUDService {
   //Function to get a specific searched employee using a search string
   getEmployee(searchString:string){
     console.log(searchString);
-    return this.http.get<Employee[]>(this.url+searchString);
+    return this.http.get<Employee[]>(this.url+'/'+searchString);
   }
 
   //Method to create a new employee
