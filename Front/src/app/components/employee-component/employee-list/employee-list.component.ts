@@ -125,7 +125,7 @@ export class EmployeeListComponent implements OnInit {
   //Funtion to search an especific employee usign the search bar
   searchEmployee(searchString) {
     console.log(searchString);
-    this.employees.push( {id:1,firstName:'nicolas',lastName:'hola',email:'4'});
+    //this.employees.push( {id:1,firstName:'nicolas',lastName:'hola',email:'4'});
     //
     this.employeeService.getEmployee(searchString).subscribe(res => {
       //Get the response form de back end
