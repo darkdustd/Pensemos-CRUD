@@ -29,10 +29,7 @@ export class EmployeeListComponent implements OnInit {
   /////////////////////////////////////////////////////////////////////////////////////////////
 
   //Variable to set all employees form the backend
-  employees: Employee[] = [{ id: 1, firstName: 'nep', lastName: 'tune', email: 'nepnep@nep' },
-  { id: 2, firstName: 'noire', lastName: 'nowa', email: 'nowa@nep' },
-  { id: 3, firstName: 'blanc', lastName: 'blanny', email: 'blanny@nep' },
-  { id: 4, firstName: 'vert', lastName: 'vertvert', email: 'vertvert@nep' }];
+  employees: any;
 
   //Array of employees selecteds with de checkbox
   selectedEmployees: any[] = [];
