@@ -131,6 +131,7 @@ export class EmployeeListComponent implements OnInit {
     //
     this.employeeService.getEmployee(searchString).subscribe(res => {
       //Get the response form de back end
+      console.log(res);
      this.employees = res;
     },
       error => {
