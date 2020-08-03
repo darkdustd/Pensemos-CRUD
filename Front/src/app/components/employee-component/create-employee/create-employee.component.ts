@@ -28,5 +28,6 @@ export class CreateEmployeeComponent implements OnInit {
     }
     //Send the new employee to the employee service in order to create it
     this.employeeService.createEmployee(newEmployee);
+    window.location.reload();
   }
 }
