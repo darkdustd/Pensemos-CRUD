@@ -129,7 +129,19 @@ export class EmployeeListComponent implements OnInit {
   searchEmployee(searchString) {
     console.log(searchString);
     //
-    this.employeeService.getEmployee(searchString);
+    this.employeeService.getEmployee(searchString).subscribe(res => {
+      //Get the response form de back end
+     this.employees = res;
+    },
+      error => {
+        //log and error if there are one
+        console.log(error);
+      },
+      () => {
+        //Display a confirmation message
+        //this.flashMessage.show("El usuario ha sido creado exitosamente", {cssClass: 'alert-success', timeout: 3000});
+
+      });;
   }
 
   displayAutocomplete(subject) {
