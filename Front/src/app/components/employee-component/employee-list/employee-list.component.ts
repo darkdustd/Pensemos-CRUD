@@ -43,6 +43,9 @@ export class EmployeeListComponent implements OnInit {
   //Variable to control the delete many users
   disabledButton: boolean = true;
 
+  //Variable to choose what search parameter use (user id or user name)
+  searchParameter: number = 1;
+
 
   constructor(public modal: MatDialog, private employeeService: EmployeeCRUDService) { }
 
@@ -127,21 +130,57 @@ export class EmployeeListComponent implements OnInit {
     console.log(searchString);
     //this.employees.push( {id:1,firstName:'nicolas',lastName:'hola',email:'4'});
     //
-    this.employeeService.getEmployee(searchString).subscribe(res => {
-      //Get the response form de back end
-      console.log(res);
-     this.employees = [];
-     this.employees.push(res);
-    },
-      error => {
-        //log and error if there are one
-        console.log(error);
+    console.log('this is the search string lenght', String(searchString).length);
+    if(String(searchString).length == 0){
+      this.employeeService.getEmployee(searchString,0).subscribe(res => {
+        //Get the response form de back end
+        console.log(res);
+       this.employees = [];
+       this.employees.push(res);
       },
-      () => {
-        //Display a confirmation message
-        //this.flashMessage.show("El usuario ha sido creado exitosamente", {cssClass: 'alert-success', timeout: 3000});
+        error => {
+          //log and error if there are one
+          console.log(error);
+        },
+        () => {
+          //Display a confirmation message
+          //this.flashMessage.show("El usuario ha sido creado exitosamente", {cssClass: 'alert-success', timeout: 3000});
+  
+        });
+    }else if (this.searchParameter == 1){
+      this.employeeService.getEmployee(searchString,1).subscribe(res => {
+        //Get the response form de back end
+        console.log(res);
+       this.employees = [];
+       this.employees.push(res);
+      },
+        error => {
+          //log and error if there are one
+          console.log(error);
+        },
+        () => {
+          //Display a confirmation message
+          //this.flashMessage.show("El usuario ha sido creado exitosamente", {cssClass: 'alert-success', timeout: 3000});
+  
+        });
+    }else{
+      this.employeeService.getEmployee(searchString,2).subscribe(res => {
+        //Get the response form de back end
+        console.log(res);
+       this.employees = [];
+       this.employees.push(res);
+      },
+        error => {
+          //log and error if there are one
+          console.log(error);
+        },
+        () => {
+          //Display a confirmation message
+          //this.flashMessage.show("El usuario ha sido creado exitosamente", {cssClass: 'alert-success', timeout: 3000});
+  
+        });
 
-      });;
+    }
   }
 
   displayAutocomplete(subject) {
@@ -205,5 +244,10 @@ export class EmployeeListComponent implements OnInit {
       this.disabledButton = true;
       console.log(this.checkBoxValue);
     }
+  }
+
+  onChangeSearchParameter(value){
+    this.searchParameter=value;
+    console.log(this.searchParameter);
   }
 }

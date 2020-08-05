@@ -7,7 +7,7 @@
 }
 
 .searchBar{
-    width: 50%;
+    width: 50%;margin-right: 10px;
 }
 
 .jumbotron {
@@ -19,6 +19,7 @@
 
 .paddingDiv{
     padding-bottom: 1rem;
+
 }
 
 /*Table*/
@@ -44,3 +45,24 @@
     vertical-align: top;
     border-top: 0px solid #dee2e6;
 }
+
+::ng-deep .mat-button-toggle-appearance-standard .mat-button-toggle-label-content {
+    line-height: 35px !important;
+}
+:host .mat-button-toggle-group{
+    outline: none !important;
+}
+
+button#mat-button-toggle-1-button {
+    outline: none;
+    outline-color: initial;
+    outline-style: none;
+    outline-width: initial;
+}
+
+button:focus {
+    outline: none;
+    outline-color: initial;
+    outline-style: none;
+    outline-width: initial;
+  }

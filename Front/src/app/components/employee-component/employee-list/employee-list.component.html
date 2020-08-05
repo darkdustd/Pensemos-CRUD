@@ -9,6 +9,14 @@
           </mat-option>
       </mat-autocomplete>
     </mat-form-field>
+    <mat-button-toggle-group #group="matButtonToggleGroup">
+      <mat-button-toggle value=1 (change)="onChangeSearchParameter($event.value)" checked>
+        ID
+      </mat-button-toggle>
+      <mat-button-toggle value=2 (change)="onChangeSearchParameter($event.value)" >
+        Name
+      </mat-button-toggle>
+    </mat-button-toggle-group>
   </form>
    
     <button mat-fab color="primary" style="outline: none; margin-right: 10px;" (click)="onCreateEmployee()">

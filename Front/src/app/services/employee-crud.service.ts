@@ -27,9 +27,15 @@ export class EmployeeCRUDService {
   }
 
   //Function to get a specific searched employee using a search string
-  getEmployee(searchString:string){
-    console.log(searchString);
-    return this.http.get<Employee[]>('http://localhost:8080/api/employee'+'/'+searchString);
+  getEmployee(searchString:string,requestType:number){
+    if(requestType == 0){
+      return this.http.get<Employee[]>(this.url);
+    }else if(requestType == 1){
+      return this.http.get<Employee[]>(this.url+'/'+searchString);
+    }else{
+      return this.http.get<Employee[]>('http://localhost:8080/api/employee'+'/'+searchString);
+    }
+    
   }
 
   //Method to create a new employee
